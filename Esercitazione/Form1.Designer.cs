@@ -28,23 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.carrello = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.lista = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.addproduct = new System.Windows.Forms.Button();
+            this.remove = new System.Windows.Forms.Button();
+            this.empty = new System.Windows.Forms.Button();
+            this.pricelabel = new System.Windows.Forms.Label();
+            this.carrello = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // carrello
-            // 
-            this.carrello.Location = new System.Drawing.Point(437, 40);
-            this.carrello.Name = "carrello";
-            this.carrello.Size = new System.Drawing.Size(351, 360);
-            this.carrello.TabIndex = 0;
-            this.carrello.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -63,6 +55,7 @@
             this.lista.Size = new System.Drawing.Size(351, 360);
             this.lista.TabIndex = 2;
             this.lista.UseCompatibleStateImageBehavior = false;
+            this.lista.View = System.Windows.Forms.View.List;
             // 
             // label2
             // 
@@ -74,75 +67,87 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "LISTA PRODOTTI";
             // 
-            // button1
+            // addproduct
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(12, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "AGGIUNGI";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addproduct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addproduct.Location = new System.Drawing.Point(12, 406);
+            this.addproduct.Name = "addproduct";
+            this.addproduct.Size = new System.Drawing.Size(100, 35);
+            this.addproduct.TabIndex = 4;
+            this.addproduct.Text = "AGGIUNGI";
+            this.addproduct.UseVisualStyleBackColor = true;
+            this.addproduct.Click += new System.EventHandler(this.addproduct_Click);
             // 
-            // button2
+            // remove
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(437, 406);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 35);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "AGGIUNGI";
-            this.button2.UseVisualStyleBackColor = true;
+            this.remove.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.remove.Location = new System.Drawing.Point(437, 406);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(100, 35);
+            this.remove.TabIndex = 6;
+            this.remove.Text = "RIMUOVI";
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
-            // button3
+            // empty
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(563, 406);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 35);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "RIMUOVI";
-            this.button3.UseVisualStyleBackColor = true;
+            this.empty.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empty.Location = new System.Drawing.Point(543, 406);
+            this.empty.Name = "empty";
+            this.empty.Size = new System.Drawing.Size(100, 35);
+            this.empty.TabIndex = 7;
+            this.empty.Text = "SVUOTA";
+            this.empty.UseVisualStyleBackColor = true;
+            this.empty.Click += new System.EventHandler(this.empty_Click);
             // 
-            // button4
+            // pricelabel
             // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(688, 406);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 35);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "SVUOTA";
-            this.button4.UseVisualStyleBackColor = true;
+            this.pricelabel.AutoSize = true;
+            this.pricelabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.pricelabel.Location = new System.Drawing.Point(687, 410);
+            this.pricelabel.Name = "pricelabel";
+            this.pricelabel.Size = new System.Drawing.Size(53, 25);
+            this.pricelabel.TabIndex = 8;
+            this.pricelabel.Text = "TOT: ";
+            // 
+            // carrello
+            // 
+            this.carrello.FormattingEnabled = true;
+            this.carrello.ItemHeight = 15;
+            this.carrello.Location = new System.Drawing.Point(437, 40);
+            this.carrello.Name = "carrello";
+            this.carrello.Size = new System.Drawing.Size(351, 349);
+            this.carrello.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 460);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.Controls.Add(this.carrello);
+            this.Controls.Add(this.pricelabel);
+            this.Controls.Add(this.empty);
+            this.Controls.Add(this.remove);
+            this.Controls.Add(this.addproduct);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lista);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.carrello);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tommy Store";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private ListView carrello;
         private Label label1;
         private ListView lista;
         private Label label2;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button addproduct;
+        private Button remove;
+        private Button empty;
+        private Label pricelabel;
+        private ListBox carrello;
     }
 }
