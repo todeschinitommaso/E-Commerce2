@@ -9,9 +9,9 @@ namespace Esercitazione
     public class prodotto
     {
         private string _id, _nome, _produttore, _descrizione;
-        private float _prezzo;
+        private decimal _prezzo;
 
-        public prodotto(string id, string nome, string produttore, string descrizione, float prezzo)
+        public prodotto(string id, string nome, string produttore, string descrizione, decimal prezzo)
         {
             Id = id;
             Nome = nome;
@@ -41,15 +41,18 @@ namespace Esercitazione
             set { _descrizione = value; }
         }
 
-        public float Prezzo
+        public decimal Prezzo
         {
             get { return _prezzo; }
             set { _prezzo = value; }
         }
 
-        public void setPrezzo(float prezzo)
+        public void setPrezzo(decimal prezzo)
         {
             this._prezzo = prezzo;
         }
+
+
+
     }
 }
