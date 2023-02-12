@@ -7,10 +7,6 @@ namespace Esercitazione
             InitializeComponent();
         }
 
-        prodotto Monitor = new prodotto("AA001", "Monitor", "Samsung", "monitor samsung curvo 24'' 144Hz 1ms", 249);
-        prodotto Telefono = new prodotto("AA002", "Iphone X", "Apple", "iPhone X 128Gb", 849);
-        prodotto Cuffie = new prodotto("AA003", "AirPods Pro", "Apple", "", 219);
-
         public float prezzo;
 
         //aggiunge un prodotto al carrello
@@ -43,9 +39,6 @@ namespace Esercitazione
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lista.Items.Add(Monitor.Prezzo + "$ " + Monitor.Nome);
-            lista.Items.Add(Telefono.Prezzo + "$ " + Telefono.Nome);
-            lista.Items.Add(Cuffie.Prezzo + "$ " + Cuffie.Nome);
         }
 
         private void carrello_SelectedIndexChanged(object sender, EventArgs e)
